@@ -21,6 +21,8 @@ for empleado in lista_empleados:
 [1] NOMBRE - APELLIDO
 [2] NOMBRE - APELLIDO
 '''
+lista_nombres = []
+lista_apellidos = []
 
 i = 0
 for nombre in range(QTY_EMPLEADOS):
@@ -47,7 +49,7 @@ lista.append(1)     # Agrega un 1 a la lista
 
 lista[1]    # Muesta una posicion en la lista, en este caso la 2da posicion
 lista[3:5]  # Muesta un rango de una lista, en este caso de la posicion 4ta a la 6ta
-lista[-1]   # en negativo deja recorrer para atrar una lista, en este caso -1 es la ultima posicion de la lista
+lista[-1]   # en negativo deja recorrer para atras una lista, en este caso -1 es la última posición de la lista
 
 for i in lista:     # así se recorre una lista
     print(i)
