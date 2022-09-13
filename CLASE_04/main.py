@@ -258,4 +258,3 @@ while True:
         lista_heroes_inteligencia()
     elif(respuesta == 15):
         break
-
