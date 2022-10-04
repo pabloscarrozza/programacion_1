@@ -1,4 +1,5 @@
 #   Pablo Scarrozza
+# A
 def stark_normalizar_datos(lista_personajes:list):
     '''
     Normaliza los datos convirtiendo los strings a flotantes o enteros
@@ -22,6 +23,7 @@ def stark_normalizar_datos(lista_personajes:list):
     else:
         print('Error: Lista de héroes vacía')
 
+# B
 def obtener_nombre(personaje:dict) -> str:
     '''
     Obtiene los nombres de todos los personajes de la lista.
@@ -50,6 +52,7 @@ def stark_imprimir_nombres_heroes(lista_personajes:list):
     else:
         print("Lista vacía")
 
+# C
 def obtener_nombre_y_dato(personaje:dict,key:str) -> str:
     '''
     Obtiene por parámetro un diccionario que representa a un héroe
@@ -71,6 +74,7 @@ def stark_imprimir_nombres_alturas(lista_personajes:list):
     else:
         print("Lista vacía")
 
+# D
 def calcular_max(lista_personajes:list,key:str):
     '''
     Recibe una lista de diccionarios y la key que se utilizará para calcular
@@ -81,13 +85,14 @@ def calcular_max(lista_personajes:list,key:str):
     personaje_max = -1
     if(type(lista_personajes) == type([]) and type(key) == type('') and len(lista_personajes) > 0):
         personaje_max = lista_personajes[0]
-        if(type(personaje[key]) == type('')):
-            personaje[key] = float(personaje[key])
         for personaje in lista_personajes:
+            if(type(personaje[key]) == type('')):
+                personaje[key] = float(personaje[key])
             if(personaje[key] > personaje_max[key]):
                 personaje_max = personaje
         return personaje_max
 
+# E
 def calcular_min(lista_personajes:list,key:str):
     '''
     Recibe una lista de diccionarios y la key que se utilizará para calcular
@@ -98,69 +103,36 @@ def calcular_min(lista_personajes:list,key:str):
     personaje_min = -1
     if(type(lista_personajes) == type([]) and type(key) == type('') and len(lista_personajes) > 0):
         personaje_min = lista_personajes[0]
-        if(type(personaje[key]) == type('')):
-            personaje[key] = float(personaje[key])
         for personaje in lista_personajes:
+            if(type(personaje[key]) == type('')):
+                personaje[key] = float(personaje[key])
             if(personaje[key] < personaje_min[key]):
                 personaje_min = personaje
         return personaje_min
 
 def calcular_max_min_dato(lista_personajes:list,key:str,tipo:str):
     '''
-    
+    Recibe una lista de diccionarios, la key que se utilizará para calcular
+    el mínimo o el maximo y el tipo ("maximo o minimo")
+    Retorna el diccionario que contiene el mínimo o el maximo
+    Retorna -1 en caso de error
     '''
     if(tipo == 'maximo'):
         calcular_max(lista_personajes,key)
     elif(tipo == 'minimo'):
         calcular_min(lista_personajes,key)
 
-def stark_calcular_imprimir_heroe(lista_personajes:list,tipo:str,key:str):
+def stark_calcular_imprimir_heroe(lista_personajes:list,key:str,tipo:str):
     '''
     
     '''
-    
+    if(len(lista_personajes) > 0):
+        print(calcular_max_min_dato(lista_personajes,key,tipo))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def calcular_minimo_maximo(lista_personajes:list,key:str,tipo:str) -> dict:
-    '''
-    Calcula el valor maximo/minimo en funcion a la key recibida
-    de una lista de personajes
-
-    Recibe una lista de diccionarios y la key que se utilizará para calcular
-    y el tipo de calculo a realizar ("maximo" o "minimo")
-
-    Retorna el diccionario que contienene el maximo/minimo
-    Retorna -1 en caso de error
-    '''
-    personaje_max_min = -1
-    if(type(lista_personajes) == type([]) and type(key) == type('') and len(lista_personajes) > 0):
-        personaje_max_min = lista_personajes[0]
-        for personaje in lista_personajes:
-            if(tipo == 'maximo' and personaje[key] > personaje_max_min[key]):
-                personaje_max_min = personaje
-            if(tipo == 'minimo' and personaje[key] < personaje_max_min[key]):
-                personaje_max_min = personaje
-        return personaje_max_min
-
+'''
+def calcular_promedio_alturas():
+    acumulador_altura = 0
+    for personaje in lista_personajes:
+        acumulador_altura += personaje['altura']
+    print('Promedio de altura: {0:0.2f}'.format(acumulador_altura/len(lista_personajes)))
+'''

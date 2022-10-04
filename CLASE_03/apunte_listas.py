@@ -106,3 +106,23 @@ for nombre in range(QTY_EMPLEADOS):
 
 
 
+def calcular_minimo_maximo(lista_personajes:list,key:str,tipo:str) -> dict:
+    '''
+    Calcula el valor maximo/minimo en funcion a la key recibida
+    de una lista de personajes
+
+    Recibe una lista de diccionarios y la key que se utilizará para calcular
+    y el tipo de calculo a realizar ("maximo" o "minimo")
+
+    Retorna el diccionario que contienene el maximo/minimo
+    Retorna -1 en caso de error
+    '''
+    personaje_max_min = -1
+    if(type(lista_personajes) == type([]) and type(key) == type('') and len(lista_personajes) > 0):
+        personaje_max_min = lista_personajes[0]
+        for personaje in lista_personajes:
+            if(tipo == 'maximo' and personaje[key] > personaje_max_min[key]):
+                personaje_max_min = personaje
+            if(tipo == 'minimo' and personaje[key] < personaje_max_min[key]):
+                personaje_max_min = personaje
+        return personaje_max_min

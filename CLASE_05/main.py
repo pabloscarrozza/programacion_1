@@ -30,44 +30,6 @@ from calculos import stark_calcular_imprimir_heroe
 }
 '''
 
-def informar_nombre_y_alturas():
-    for personaje in lista_personajes:
-        print('Nombre: {0} - Altura: {1:05.2f}'.format(personaje['nombre'],personaje['altura']))
-
-def calcular_altura_maxima():
-    heroe_altura_maxima = lista_personajes[0]
-    for personaje in lista_personajes:
-        if(personaje['altura'] > heroe_altura_maxima['altura']):
-            heroe_altura_maxima = personaje
-    print('Héroe más alto:\nNombre: {0} - Altura: {1:05.2f}'.format(heroe_altura_maxima['nombre'],heroe_altura_maxima['altura']))
-
-def calcular_altura_minima():
-    heroe_altura_minimo = lista_personajes[0]
-    for personaje in lista_personajes:
-        if(personaje['altura'] < heroe_altura_minimo['altura']):
-            heroe_altura_minimo = personaje
-    print('Héroe más bajo:\nNombre: {0} - Altura: {1:05.2f}'.format(heroe_altura_minimo['nombre'],heroe_altura_minimo['altura']))
-
-def calcular_promedio_alturas():
-    acumulador_altura = 0
-    for personaje in lista_personajes:
-        acumulador_altura += personaje['altura']
-    print('Promedio de altura: {0:0.2f}'.format(acumulador_altura/len(lista_personajes)))
-
-def calcular_peso_maximo():
-    heroe_peso_maximo = lista_personajes[0]
-    for personaje in lista_personajes:
-        if(personaje['peso'] > heroe_peso_maximo['peso']):
-            heroe_peso_maximo = personaje
-    print('Héroe más pesado:\nNombre: {0} - Peso: {1:05.2f}'.format(heroe_peso_maximo['nombre'],heroe_peso_maximo['peso']))
-
-def calcular_peso_minimo():
-    heroe_peso_minimo = lista_personajes[0]
-    for personaje in lista_personajes:
-        if(personaje['peso'] < heroe_peso_minimo['peso']):
-            heroe_peso_minimo = personaje
-    print('Héroe menos pesado:\nNombre: {0} - Peso: {1:05.2f}'.format(heroe_peso_minimo['nombre'],heroe_peso_minimo['peso']))
-
 while True:
 
     print(
@@ -91,15 +53,15 @@ while True:
     elif(respuesta == 2):
         stark_imprimir_nombres_alturas(lista_personajes)
     elif(respuesta == 3):
-        stark_calcular_imprimir_heroe(lista_personajes)
+        stark_calcular_imprimir_heroe(lista_personajes, 'altura', 'maximo')
     elif(respuesta == 4):
-        calcular_altura_minima()
+        stark_calcular_imprimir_heroe(lista_personajes, 'altura', 'minimo')
     elif(respuesta == 5):
-        calcular_promedio_alturas()
+        pass
     elif(respuesta == 6):
-        calcular_peso_maximo()
+        pass
     elif(respuesta == 7):
-        calcular_peso_minimo()
+        pass
     elif(respuesta == 8):
         break
 
